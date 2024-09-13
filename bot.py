@@ -8,20 +8,20 @@ async def start(update: Update, context: CallbackContext) -> None:
     # Define the Web App link you want to open inside Telegram as a modal
     web_app_url = "https://www.youtube.com"
 
-    # Create a button that opens the Web App in Telegram
+    # Creates a button that opens the Web App in Telegram
     keyboard = [[InlineKeyboardButton("Open Web App", web_app=WebAppInfo(url=web_app_url))]]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text('Click the button below to open the Web App:', reply_markup=reply_markup)
 
 def main() -> None:
-    # Create the Application and pass it your bot's token.
+    # Creates the Application and passes it to your bot's token.
     application = Application.builder().token(TELEGRAM_TOKEN).build()
 
-    # Add command handler for /start command
+    # Adds command handler for /start command
     application.add_handler(CommandHandler('start', start))
 
-    # Run the bot until you send a signal to stop
+    # Runs the bot until you send a signal to stop
     application.run_polling()
 
 if __name__ == '__main__':
