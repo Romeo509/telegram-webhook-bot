@@ -1,14 +1,18 @@
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo, Update
 from telegram.ext import Application, CommandHandler, CallbackContext
 
 # Replace 'YOUR_TELEGRAM_BOT_TOKEN' with your actual bot token
-TELEGRAM_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'
+TELEGRAM_TOKEN = 'your tokken'
 
 async def start(update: Update, context: CallbackContext) -> None:
-    keyboard = [[InlineKeyboardButton("Open Link", url="https://your-web-hosting.com/your-page")]]
+    # Define the Web App link you want to open inside Telegram as a modal
+    web_app_url = "https://www.youtube.com"
+
+    # Create a button that opens the Web App in Telegram
+    keyboard = [[InlineKeyboardButton("Open Web App", web_app=WebAppInfo(url=web_app_url))]]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text('Click the button below:', reply_markup=reply_markup)
+    await update.message.reply_text('Click the button below to open the Web App:', reply_markup=reply_markup)
 
 def main() -> None:
     # Create the Application and pass it your bot's token.
