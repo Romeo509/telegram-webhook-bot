@@ -27,3 +27,17 @@ To install the required packages, use pip:
 
 ```bash
 pip install customtkinter Pillow python-telegram-bot pyinstaller
+```
+The command python -m PyInstaller --onefile --windowed telegram_gui.py packages your Python GUI app into a single executable file, eliminating the need for users to install Python or dependencies. The --windowed flag ensures no terminal opens with the GUI, providing a cleaner user experience.
+
+```bash
+python -m PyInstaller --onefile --windowed telegram_gui.py
+```
+
+##Compiling the GUI Application with Background Image
+To compile the telegram_gui.py file (which uses a custom image as a background), use the following command:
+```bash
+pyinstaller --onefile --windowed --add-data "images;images" telegram_gui.py
+
+
+
