@@ -34,7 +34,7 @@ The command python -m PyInstaller --onefile --windowed telegram_gui.py packages 
 python -m PyInstaller --onefile --windowed telegram_gui.py
 ```
 
-##Compiling the GUI Application with Background Image
+### Compiling the GUI Application with Background Image
 To compile the telegram_gui.py file (which uses a custom image as a background), use the following command:
 ```bash
 pyinstaller --onefile --windowed --add-data "images;images" telegram_gui.py
